@@ -13,9 +13,8 @@ private:
   ros::Subscriber _sub;
   
   
-  double a;
-  double b;
-  void initSub();
-  void initPub();
+  double temp;
+  void initSubscriber();
+  void initPublisher();
   void CallBack(const std_msgs::Float32::ConstPtr& msg);
 };
