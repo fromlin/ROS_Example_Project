@@ -7,6 +7,9 @@ public:
   example(ros::NodeHandle* nh)_nh(*nh){
     init();
   }
+  
+  void Run();
+  
 private:
   ros::NodeHandle  _nh;
   ros::Publisher  _pub;
