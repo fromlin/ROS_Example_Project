@@ -1,7 +1,5 @@
 #include <ros/ros.h>
 #include <std_msgs/Float32.h>
-#include <vector>
-#include <string>
 
 class example
 {
