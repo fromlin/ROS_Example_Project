@@ -13,10 +13,10 @@ void example::initPublisher()
 
 void example::initSubscriber()
 {
-  _sub = _nh.subscribe("/topic/sub", 1, example::CallBack, this);
+  _sub = _nh.subscribe("/topic/sub", 1, &example::CallBack, this);
 }
 
-void example::CallBack(const std_msgs::Float32 msg)
+void example::CallBack(const std_msgs::Float32& msg)
 {
   temp = msg.data;
   _pub.publish(temp);
