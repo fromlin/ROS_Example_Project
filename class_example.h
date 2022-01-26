@@ -14,5 +14,5 @@ private:
   double temp;
   void initSubscriber();
   void initPublisher();
-  void CallBack(const std_msgs::Float32::ConstPtr& msg);
+  void CallBack(const std_msgs::Float32& msg);
 };
