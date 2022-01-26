@@ -2,8 +2,8 @@
 
 example::example(ros::NodeHandle* nh):nh_(nh)
 {
-  initSub();
-  initPub();
+  initPublisher();
+  initSubscriber();
 }
 
 void example::initPublisher()
