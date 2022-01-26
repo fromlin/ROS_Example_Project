@@ -4,7 +4,9 @@
 class example
 {
 public:
-  example(ros::NodeHandle* nh);
+  example(ros::NodeHandle* nh)_nh(*nh){
+    init();
+  }
 private:
   ros::NodeHandle  _nh;
   ros::Publisher  _pub;
@@ -12,7 +14,19 @@ private:
   
   
   double temp;
-  void initSubscriber();
-  void initPublisher();
+  void init();
   void CallBack(const std_msgs::Float32& msg);
 };
+
+
+void example::init()
+{
+  _pub = _nh.advertise<std_msgs::Float32>("/topic/pub", 1, true);
+  _sub = _nh.subscribe("/topic/sub", 1, &example::CallBack, this);
+}
+
+void example::CallBack(const std_msgs::Float32& msg)
+{
+  temp = msg.data;
+  _pub.publish(temp);
+}
