@@ -1,23 +1,18 @@
 #include "class_example.h"
 
-example::example(ros::NodeHandle* nh):nh_(nh)
+int main(int argc, char **argv)
 {
-  initPublisher();
-  initSubscriber();
-}
+    ros::init(argc, argv, "example_node");
+    ros::NodeHandle nh;
 
-void example::initPublisher()
-{
-  _pub = _nh.advertise<std_msgs::Float32>("/topic/pub", 1, true);
-}
+    example ex(&nh);
 
-void example::initSubscriber()
-{
-  _sub = _nh.subscribe("/topic/sub", 1, &example::CallBack, this);
-}
-
-void example::CallBack(const std_msgs::Float32& msg)
-{
-  temp = msg.data;
-  _pub.publish(temp);
+    ros::Rate loop_rate(100);
+    while (ros::ok())
+    {
+        example.Run();
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
+    return 0;
 }
