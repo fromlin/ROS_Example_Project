@@ -11,7 +11,7 @@ void example::initPublisher()
   _pub = _nh.advertise<std_msgs::Float32>("/topic/pub", 1, true);
 }
 
-void example::initSub()
+void example::initSubscriber()
 {
   _sub = _nh.subscribe("/topic/sub", 1, example::CallBack, this);
 }
