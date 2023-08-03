@@ -1,3 +1,6 @@
+#ifndef EXAMPLE_CLASS_H
+#define EXAMPLE_CLASS_H
+
 #include <ros/ros.h>
 #include <std_msgs/Float32.h>
 
@@ -21,15 +24,4 @@ private:
   void CallBack(const std_msgs::Float32& msg);
 };
 
-
-void example::init()
-{
-  _pub = _nh.advertise<std_msgs::Float32>("/topic/pub", 1, true);
-  _sub = _nh.subscribe("/topic/sub", 1, &example::CallBack, this);
-}
-
-void example::CallBack(const std_msgs::Float32& msg)
-{
-  temp = msg.data;
-  _pub.publish(temp);
-}
+#endif // EXAMPLE_CLASS_H
