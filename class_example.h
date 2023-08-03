@@ -4,10 +4,10 @@
 #include <ros/ros.h>
 #include <std_msgs/Float32.h>
 
-class example
+class EXAMPLE
 {
 public:
-  example(ros::NodeHandle* nh)_nh(*nh){
+  EXAMPLE(ros::NodeHandle* nh) : _nh(*nh){
     init();
   }
   
