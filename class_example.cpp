@@ -30,3 +30,7 @@ void EXAMPLE::CallBack(const std_msgs::Float32& msg)
   temp = msg.data;
   _pub.publish(temp);
 }
+
+void EXAMPLE::Run()
+{
+}
