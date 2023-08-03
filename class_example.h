@@ -7,8 +7,13 @@
 class EXAMPLE
 {
 public:
-  EXAMPLE(ros::NodeHandle* nh) : _nh(*nh){
+  EXAMPLE(ros::NodeHandle* nh) : _nh(*nh)
+  {
     init();
+  }
+  ~EXAMPLE()
+  {
+
   }
   
   void Run();
